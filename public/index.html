@@ -4,184 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Threshold — Gathering the Evidence</title>
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/homepage.css" />
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════
-     HERO — full background image with hotspot overlay layer
-     ════════════════════════════════════════════════════════ -->
 <main class="hero" role="main" aria-label="Project Threshold Homepage">
 
   <img
     class="hero__bg"
     src="images/homepage-bg.jpg"
-    alt="Project Threshold — neon-lit cryptid research dashboard featuring Bigfoot, werewolf entities, and categorised report panels"
+    alt="Project Threshold — neon-lit cryptid research dashboard"
   />
 
   <!-- ══════════════════════════════════════════════════════
-       HOTSPOT LAYER
-       All positions are expressed as % of the hero container.
-       Coordinates were measured against the source image
-       (951 × 1269 px).
-
-       Layout map (col × row):
-         col-L  = left panel  ~0–22 %
-         col-C  = centre      ~22–78 %
-         col-R  = right panel ~78–100 %
-         row-T  = top         ~0–10 %
-         row-1  = login/title ~10–22 %
-         row-2  = report CTA  ~22–37 %
-         row-3  = mid panels  ~37–68 %
-         row-4  = lower-mid   ~68–80 %
-         row-5  = bottom      ~80–100 %
+       HOTSPOT LAYER — positions calibrated to 951×1269 artwork
+       All values are % of the hero container.
        ══════════════════════════════════════════════════════ -->
-  <div class="hotspot-layer" aria-label="Interactive hotspots">
+  <div class="hotspot-layer" aria-label="Interactive navigation hotspots">
 
-    <!-- ── LOGIN panel (top-left) ───────────────────────── -->
-    <a href="#login"
+    <!-- LOGIN panel — top-left, green border -->
+    <a href="pages/login.html"
        class="hotspot hotspot--green"
-       style="left:1%; top:1%; width:21%; height:20%;"
-       data-modal="login"
+       style="left:0.5%; top:1.2%; width:20.5%; height:17.5%;"
        data-tip="Login to your account"
        aria-label="Login">
-      <span class="hotspot__label">Login</span>
+      <span class="hotspot__label">Login »</span>
     </a>
 
-    <!-- ── SETTINGS panel (top-right) ──────────────────── -->
-    <a href="#settings"
+    <!-- SETTINGS panel — top-right, cyan border -->
+    <a href="pages/settings.html"
        class="hotspot hotspot--cyan"
-       style="left:78%; top:1%; width:21%; height:20%;"
-       data-modal="settings"
-       data-tip="Settings — Preferences, Notifications, Display, Security, Account"
+       style="left:79%; top:1.2%; width:20.5%; height:17.5%;"
+       data-tip="Settings — Preferences, Notifications, Display, Security"
        aria-label="Settings">
-      <span class="hotspot__label">Settings</span>
+      <span class="hotspot__label">Settings »</span>
     </a>
 
-    <!-- ── PROJECT THRESHOLD title / hero centre (top-centre) -->
-    <div class="hotspot hotspot--cyan"
-         style="left:22%; top:1%; width:56%; height:10%;"
-         aria-label="Project Threshold — Gathering the Evidence"
-         role="img">
-    </div>
-
-    <!-- ── REPORT AN EXPERIENCE — primary CTA (centre) ─── -->
-    <a href="#report"
+    <!-- REPORT AN EXPERIENCE — centre CTA, yellow pulse -->
+    <a href="pages/report.html"
        class="hotspot hotspot--yellow hotspot--pulse"
-       style="left:22%; top:24%; width:56%; height:10%;"
-       data-modal="report-experience"
+       style="left:21.6%; top:20%; width:56.8%; height:10%;"
        data-tip="Submit your encounter or experience"
        aria-label="Report an Experience">
       <span class="hotspot__label">Report an Experience »</span>
     </a>
 
-    <!-- ── OVERLAPPING REPORTS (left-mid) ───────────────── -->
-    <a href="#overlapping"
+    <!-- OVERLAPPING REPORTS — left-mid, green -->
+    <a href="pages/overlapping-reports.html"
        class="hotspot hotspot--green"
-       style="left:1%; top:22%; width:21%; height:26%;"
-       data-modal="overlapping-reports"
-       data-tip="View overlapping / cross-referenced reports"
-       aria-label="Overlapping Reports — Open Reports">
+       style="left:0.5%; top:19.5%; width:20.5%; height:21.5%;"
+       data-tip="Cross-referenced encounter data"
+       aria-label="Overlapping Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── ENCOUNTER REPORTS (right-mid) ────────────────── -->
-    <a href="#encounters"
+    <!-- ENCOUNTER REPORTS — right-mid, magenta -->
+    <a href="pages/encounter-reports.html"
        class="hotspot hotspot--magenta"
-       style="left:78%; top:22%; width:21%; height:26%;"
-       data-modal="encounter-reports"
-       data-tip="Browse first-hand encounter reports"
-       aria-label="Encounter Reports — Open Reports">
+       style="left:79%; top:19.5%; width:20.5%; height:21.5%;"
+       data-tip="First-hand encounter accounts"
+       aria-label="Encounter Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── FEAR & INTIMIDATION REPORTS (left-lower) ─────── -->
-    <a href="#fear"
+    <!-- FEAR & INTIMIDATION REPORTS — left-lower, cyan -->
+    <a href="pages/fear-intimidation.html"
        class="hotspot hotspot--cyan"
-       style="left:1%; top:50%; width:21%; height:22%;"
-       data-modal="fear-intimidation"
-       data-tip="Fear and Intimidation encounter reports"
-       aria-label="Fear and Intimidation Reports — Open Reports">
+       style="left:0.5%; top:41.5%; width:20.5%; height:22.5%;"
+       data-tip="Fear and psychological impact reports"
+       aria-label="Fear and Intimidation Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── LESSONS / INTEGRATED REPORTS (right-lower) ───── -->
-    <a href="#lessons"
+    <!-- LESSONS / INTEGRATED REPORTS — right-lower, orange -->
+    <a href="pages/lessons.html"
        class="hotspot hotspot--orange"
-       style="left:78%; top:50%; width:21%; height:22%;"
-       data-modal="lessons-integrated"
-       data-tip="Lessons and integrated research reports"
-       aria-label="Lessons, Integrated Reports — Open Reports">
+       style="left:79%; top:41.5%; width:20.5%; height:22.5%;"
+       data-tip="Integrated research and lessons learned"
+       aria-label="Lessons — Integrated Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── EXPLORE THE THEORY — CTA (centre-low) ────────── -->
-    <a href="#theory"
+    <!-- EXPLORE THE THEORY — centre CTA, cyan pulse -->
+    <a href="pages/explore-theory.html"
        class="hotspot hotspot--cyan hotspot--pulse"
-       style="left:22%; top:73%; width:56%; height:8%;"
-       data-modal="explore-theory"
+       style="left:21.6%; top:69%; width:56.8%; height:7.5%;"
        data-tip="Discover the speculative hypothesis"
-       aria-label="Explore the Theory — Discover the Hypothesis">
+       aria-label="Explore the Theory">
       <span class="hotspot__label">Explore the Theory »</span>
     </a>
 
-    <!-- ── EVIDENCE & ENCOUNTERS (bottom-left) ───────────── -->
-    <a href="#evidence"
+    <!-- EVIDENCE & ENCOUNTERS — bottom-left, green -->
+    <a href="pages/evidence.html"
        class="hotspot hotspot--green"
-       style="left:1%; top:74%; width:21%; height:24%;"
-       data-modal="evidence-encounters"
-       data-tip="Evidence, photos, audio, and encounter logs"
-       aria-label="Evidence and Encounters — Open Reports">
+       style="left:0.5%; top:64.5%; width:20.5%; height:25%;"
+       data-tip="Physical and photographic evidence catalogue"
+       aria-label="Evidence and Encounters">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── MEDIA / SENSOR ICONS (bottom-left inner strip) ── -->
-    <div class="hotspot hotspot--green"
-         style="left:16%; top:77%; width:6%; height:18%;"
-         aria-hidden="true">
-    </div>
-
-    <!-- ── NEUTRALIZING FEAR TECHNIQUES (bottom-centre) ─── -->
-    <a href="#neutralizing"
+    <!-- NEUTRALIZING FEAR TECHNIQUES — bottom-centre, magenta pulse -->
+    <a href="pages/neutralizing-fear.html"
        class="hotspot hotspot--magenta hotspot--pulse"
-       style="left:22%; top:81%; width:34%; height:17%;"
-       data-modal="neutralizing-fear"
-       data-tip="Techniques for neutralising entity-induced fear"
-       aria-label="Neutralizing Fear Techniques — Open Reports">
+       style="left:21.6%; top:77%; width:36%; height:17.5%;"
+       data-tip="Techniques for countering entity-induced fear"
+       aria-label="Neutralizing Fear Techniques">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ── COMMUNITY FORUM (bottom-right) ───────────────── -->
-    <a href="#community"
+    <!-- COMMUNITY FORUM — bottom-right, cyan -->
+    <a href="pages/community.html"
        class="hotspot hotspot--cyan"
-       style="left:57%; top:81%; width:42%; height:17%;"
-       data-modal="community-forum"
+       style="left:58.5%; top:77%; width:41%; height:17.5%;"
        data-tip="Join the research community forum"
-       aria-label="Community Forum — Open Reports">
-      <span class="hotspot__label">Open Reports »</span>
+       aria-label="Community Forum">
+      <span class="hotspot__label">Open Forum »</span>
     </a>
 
-  </div><!-- /.hotspot-layer -->
+  </div>
 
 </main>
 
-<!-- ════════════════════════════════════════════════════════
-     MODAL — shared, populated by JS
-     ════════════════════════════════════════════════════════ -->
-<div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal">
-    <h2 id="modal-title"></h2>
-    <p  id="modal-body"></p>
-    <button id="modal-close" class="modal__close">Close ✕</button>
-  </div>
-</div>
+<!-- Floating tooltip -->
+<div id="tip" class="tooltip" role="tooltip" aria-hidden="true"></div>
 
-<script src="js/homepage.js"></script>
+<script>
+const tip = document.getElementById('tip');
+document.querySelectorAll('.hotspot[data-tip]').forEach(h => {
+  h.addEventListener('mouseenter', e => { tip.textContent = h.dataset.tip; tip.classList.add('visible'); move(e); });
+  h.addEventListener('mousemove', move);
+  h.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+});
+function move(e) {
+  const x = e.clientX + 14, y = e.clientY + 14, tw = tip.offsetWidth, vw = window.innerWidth;
+  tip.style.left = (x + tw > vw ? x - tw - 28 : x) + 'px';
+  tip.style.top = y + 'px';
+}
+</script>
 </body>
 </html>

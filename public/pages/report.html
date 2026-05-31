@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report an Experience — Project Threshold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/section.css" />
+  <style>:root{--accent:#ffe600;}</style>
+</head>
+<body>
+<div class="page-wrap">
+  <nav class="back-nav">
+    <a href="../index.html" class="back-btn"><span class="back-btn__arrow">←</span> Home</a>
+    <span class="breadcrumb">Project Threshold / <span>Report an Experience</span></span>
+  </nav>
+  <header class="section-header">
+    <p class="section-header__eyebrow">Submit Evidence</p>
+    <h1>Report an Experience</h1>
+    <p class="section-header__sub">Share. Document. Make an Impact.</p>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat__value">4,218</span><span class="stat__label">Reports filed</span></div>
+    <div class="stat"><span class="stat__value">89%</span><span class="stat__label">Cross-matched</span></div>
+    <div class="stat"><span class="stat__value">37</span><span class="stat__label">Active regions</span></div>
+  </div>
+  <div class="form-panel" style="max-width:640px;">
+    <div class="form-group">
+      <label for="exp-type">Experience type</label>
+      <select id="exp-type">
+        <option>Direct visual sighting</option>
+        <option>Auditory encounter</option>
+        <option>Physical evidence found</option>
+        <option>Fear / psychological event</option>
+        <option>Multiple witnesses</option>
+        <option>Technology anomaly</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exp-date">Date of experience</label>
+      <input type="date" id="exp-date" />
+    </div>
+    <div class="form-group">
+      <label for="exp-location">Location (general area)</label>
+      <input type="text" id="exp-location" placeholder="e.g. Pacific Northwest, WA" />
+    </div>
+    <div class="form-group">
+      <label for="exp-desc">Detailed account</label>
+      <textarea id="exp-desc" placeholder="Describe what you observed in as much detail as possible…"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exp-entity">Entity description (if applicable)</label>
+      <input type="text" id="exp-entity" placeholder="Height, build, features, behaviour…" />
+    </div>
+    <div class="form-group">
+      <label for="exp-fear">Fear response (1 = none, 10 = extreme)</label>
+      <input type="range" id="exp-fear" min="1" max="10" value="5" style="accent-color:#ffe600;" />
+    </div>
+    <button class="btn-primary btn-full" type="button">Submit Report &nbsp;»</button>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',()=>t.classList.toggle('on')));
+</script>
+</body>
+</html>
