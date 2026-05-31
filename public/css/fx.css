@@ -1,0 +1,155 @@
+/* ============================================================
+   Project Threshold — FX & Polish Layer
+   Layered on top of homepage.css / section.css
+   ============================================================ */
+
+/* ── Ambient canvas sits behind everything ────────────────── */
+#ambient-canvas { z-index: 0; }
+
+/* Ensure all real content sits above the canvas */
+.hero, .page-wrap { position: relative; z-index: 1; }
+
+/* ── Hotspot: upgraded base ───────────────────────────────── */
+.hotspot {
+  /* SVG border overlay is a child; keep overflow visible */
+  overflow: visible;
+  transition: border-color .22s, box-shadow .22s, background .22s, transform .18s;
+}
+.hotspot:hover { transform: scale(1.012); }
+.hotspot:active { transform: scale(0.995); }
+
+/* Stronger glow on hover ── existing classes get a boost */
+.hotspot--cyan:hover    { box-shadow: 0 0 22px #00f0ff, 0 0 55px rgba(0,240,255,.25), inset 0 0 14px rgba(0,240,255,.1); }
+.hotspot--green:hover   { box-shadow: 0 0 22px #39ff14, 0 0 55px rgba(57,255,20,.25),  inset 0 0 14px rgba(57,255,20,.1); }
+.hotspot--yellow:hover  { box-shadow: 0 0 22px #ffe600, 0 0 55px rgba(255,230,0,.25),  inset 0 0 14px rgba(255,230,0,.1); }
+.hotspot--magenta:hover { box-shadow: 0 0 22px #ff00c8, 0 0 55px rgba(255,0,200,.25),  inset 0 0 14px rgba(255,0,200,.1); }
+.hotspot--orange:hover  { box-shadow: 0 0 22px #ff6a00, 0 0 55px rgba(255,106,0,.25),  inset 0 0 14px rgba(255,106,0,.1); }
+
+/* ── Pulse: double-ring version ───────────────────────────── */
+.hotspot--pulse::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 10px;
+  border: 1px solid currentColor;
+  opacity: 0;
+  animation: pulse-ring 2.4s ease-out infinite 1.2s;
+}
+@keyframes pulse-ring {
+  0%  { transform: scale(1);    opacity: .4; }
+  80% { transform: scale(1.09); opacity: 0; }
+  100%{ opacity: 0; }
+}
+
+/* ── Scan-line sheen on hero ──────────────────────────────── */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,.08) 3px,
+    rgba(0,0,0,.08) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+/* Hotspot layer must sit above scan lines */
+.hotspot-layer { z-index: 3; }
+
+/* ── Animated corner brackets on hotspot hover ────────────── */
+.hotspot::before {
+  display: none; /* reserved for pulse-ring on pulse hotspots */
+}
+.hotspot--pulse::before { display: block; }
+
+/* ── Section pages: card hover lift ──────────────────────── */
+.card {
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent, #00f0ff);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 20px rgba(0,240,255,.12);
+}
+
+/* Report-item hover lift */
+.report-item {
+  transition: border-color .2s, box-shadow .2s, transform .18s;
+}
+.report-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 0 16px rgba(0,240,255,.1);
+}
+
+/* Forum thread hover */
+.forum-thread {
+  transition: border-color .2s, box-shadow .2s, transform .18s;
+}
+.forum-thread:hover {
+  transform: translateX(4px);
+  box-shadow: 0 0 16px rgba(0,240,255,.1);
+}
+
+/* ── Section header glow pulse ────────────────────────────── */
+.section-header h1 {
+  animation: hdr-glow 4s ease-in-out infinite alternate;
+}
+@keyframes hdr-glow {
+  from { text-shadow: none; }
+  to   { text-shadow: 0 0 18px rgba(0,240,255,.35); }
+}
+
+/* ── Back button micro-animation ──────────────────────────── */
+.back-btn {
+  transition: background .2s, box-shadow .2s, transform .18s;
+}
+.back-btn:hover { transform: translateX(-3px); }
+
+/* ── Stat value counter shimmer ───────────────────────────── */
+.stat__value {
+  display: inline-block;
+  animation: stat-shimmer 3s ease-in-out infinite alternate;
+}
+@keyframes stat-shimmer {
+  from { text-shadow: 0 0 8px currentColor; }
+  to   { text-shadow: 0 0 24px currentColor, 0 0 50px currentColor; }
+}
+
+/* ── Eyebrow text flicker ─────────────────────────────────── */
+.section-header__eyebrow {
+  animation: eyebrow-flicker 6s step-end infinite;
+}
+@keyframes eyebrow-flicker {
+  0%, 92%, 94%, 96%, 100% { opacity: 1; }
+  93%, 95% { opacity: 0.4; }
+}
+
+/* ── Form inputs: glow on focus ───────────────────────────── */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  box-shadow: 0 0 0 1px var(--accent, #00f0ff), 0 0 14px rgba(0,240,255,.25);
+}
+
+/* ── Button press effect ──────────────────────────────────── */
+.btn-primary {
+  transition: background .2s, box-shadow .2s, transform .15s;
+}
+.btn-primary:active { transform: scale(0.97); }
+
+/* ── Settings toggle glow ─────────────────────────────────── */
+.toggle.on {
+  box-shadow: 0 0 10px rgba(0,240,255,.5);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #010a10; }
+::-webkit-scrollbar-thumb { background: rgba(0,240,255,.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,.55); }
+
+/* ── Page transition veil ─────────────────────────────────── */
+#pt-veil { pointer-events: none; }
