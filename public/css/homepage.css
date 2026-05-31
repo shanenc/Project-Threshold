@@ -184,17 +184,17 @@ html, body {
 /* ── Pixel-perfect hotspot positions ─────────────────────── */
 /* Coordinates derived from neon border pixel analysis of the 951×1269 artwork */
 
-.hs-login        { left:.42%;  top:9.54%; width:24.40%; height:10.24%; }
-.hs-settings     { left:75.18%;top:9.54%; width:24.19%; height:10.24%; }
-.hs-report       { left:24.92%;top:19.94%;width:49.84%; height:20.17%; }
-.hs-overlapping  { left:.42%;  top:19.94%;width:24.40%; height:19.86%; }
-.hs-encounter    { left:74.97%;top:19.94%;width:24.40%; height:19.86%; }
-.hs-fear         { left:.63%;  top:39.87%;width:24.19%; height:19.86%; }
-.hs-lessons      { left:74.97%;top:39.87%;width:24.40%; height:19.86%; }
-.hs-evidence     { left:.63%;  top:59.89%;width:24.19%; height:30.73%; }
-.hs-theory       { left:24.92%;top:66.19%;width:49.84%; height:10.87%; }
-.hs-neutralizing { left:25.34%;top:75.65%;width:33.44%; height:15.13%; }
-.hs-community    { left:58.89%;top:75.65%;width:40.38%; height:15.13%; }
+.hs-login        { left:.53%;   top:9.30%;  width:24.29%; height:10.72%; }
+.hs-settings     { left:74.87%; top:9.30%;  width:24.61%; height:10.72%; }
+.hs-report       { left:22.61%; top:22.46%; width:54.89%; height:8.67%;  }
+.hs-overlapping  { left:.53%;   top:46.65%; width:24.19%; height:2.68%;  }
+.hs-encounter    { left:74.87%; top:46.89%; width:24.50%; height:2.84%;  }
+.hs-fear         { left:.53%;   top:69.58%; width:24.50%; height:2.52%;  }
+.hs-lessons      { left:74.87%; top:69.74%; width:24.50%; height:2.60%;  }
+.hs-evidence     { left:.95%;   top:87.39%; width:22.71%; height:3.39%;  }
+.hs-theory       { left:22.92%; top:68.87%; width:53.63%; height:6.78%;  }
+.hs-neutralizing { left:25.34%; top:87.31%; width:32.28%; height:3.55%;  }
+.hs-community    { left:59.73%; top:87.31%; width:39.22%; height:3.55%;  }
 
 /* ── Responsive breakpoints ──────────────────────────────── */
 /*
