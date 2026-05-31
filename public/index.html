@@ -4,11 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Threshold — Gathering the Evidence</title>
+
+  <!-- PWA / app meta -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Threshold" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#00f0ff" />
+  <meta name="description" content="Project Threshold — Gathering the Evidence. Interactive neon research dashboard." />
+
   <link rel="stylesheet" href="css/homepage.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="css/fx.css" />
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════════════
+     DESKTOP LAYOUT  (≥768px — unchanged hotspot overlay)
+     ══════════════════════════════════════════════════════ -->
 <main class="hero" role="main" aria-label="Project Threshold Homepage">
 
   <img
@@ -18,12 +35,6 @@
     draggable="false"
   />
 
-  <!-- ══════════════════════════════════════════════════════
-       HOTSPOT LAYER
-       Positions use semantic CSS classes defined in homepage.css.
-       Every coordinate was derived from the artwork's own neon
-       border pixels (951x1269 source; scales proportionally).
-       ══════════════════════════════════════════════════════ -->
   <div class="hotspot-layer" aria-label="Navigation hotspots">
 
     <a href="pages/login.html"
@@ -106,6 +117,120 @@
   </div>
 
 </main>
+
+<!-- ══════════════════════════════════════════════════════
+     MOBILE LAYOUT  (<768px — stacked touch cards)
+     ══════════════════════════════════════════════════════ -->
+<nav class="mobile-nav" aria-label="Project Threshold Navigation">
+
+  <header class="mobile-header">
+    <img src="images/icon-192.png" alt="" class="mobile-header__icon" aria-hidden="true" />
+    <div class="mobile-header__text">
+      <span class="mobile-header__title">PROJECT THRESHOLD</span>
+      <span class="mobile-header__sub">Gathering the Evidence</span>
+    </div>
+  </header>
+
+  <a href="pages/login.html" class="mc mc--green">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Login</span>
+      <span class="mc__desc">Access your research account</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/report.html" class="mc mc--yellow mc--pulse">
+    <span class="mc__icon">◈</span>
+    <span class="mc__body">
+      <span class="mc__name">Report an Experience</span>
+      <span class="mc__desc">Share your encounter</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/explore-theory.html" class="mc mc--cyan mc--pulse">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Explore the Theory</span>
+      <span class="mc__desc">The biological derivation hypothesis</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/encounter-reports.html" class="mc mc--magenta">
+    <span class="mc__icon">◈</span>
+    <span class="mc__body">
+      <span class="mc__name">Encounter Reports</span>
+      <span class="mc__desc">First-hand accounts</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/overlapping-reports.html" class="mc mc--green">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Overlapping Reports</span>
+      <span class="mc__desc">Cross-referenced encounters</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/fear-intimidation.html" class="mc mc--cyan">
+    <span class="mc__icon">◈</span>
+    <span class="mc__body">
+      <span class="mc__name">Fear &amp; Intimidation</span>
+      <span class="mc__desc">Psychological impact reports</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/lessons.html" class="mc mc--orange">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Lessons &amp; Integrated Reports</span>
+      <span class="mc__desc">Synthesised research</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/evidence.html" class="mc mc--green">
+    <span class="mc__icon">◈</span>
+    <span class="mc__body">
+      <span class="mc__name">Evidence &amp; Encounters</span>
+      <span class="mc__desc">Physical and digital archive</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/neutralizing-fear.html" class="mc mc--magenta mc--pulse">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Neutralizing Fear</span>
+      <span class="mc__desc">Countermeasure research</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/community.html" class="mc mc--cyan">
+    <span class="mc__icon">◈</span>
+    <span class="mc__body">
+      <span class="mc__name">Community Forum</span>
+      <span class="mc__desc">Peer research and open investigations</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+  <a href="pages/settings.html" class="mc mc--cyan">
+    <span class="mc__icon">⬡</span>
+    <span class="mc__body">
+      <span class="mc__name">Settings</span>
+      <span class="mc__desc">Preferences, notifications, security</span>
+    </span>
+    <span class="mc__arrow">›</span>
+  </a>
+
+</nav>
 
 <script src="js/hotspots.js"></script>
 <script src="js/fx.js"></script>
