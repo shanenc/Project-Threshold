@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Threshold — Gathering the Evidence</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/homepage.css" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO — full background image with hotspot overlay layer
+     ════════════════════════════════════════════════════════ -->
+<main class="hero" role="main" aria-label="Project Threshold Homepage">
+
+  <img
+    class="hero__bg"
+    src="images/homepage-bg.jpg"
+    alt="Project Threshold — neon-lit cryptid research dashboard featuring Bigfoot, werewolf entities, and categorised report panels"
+  />
+
+  <!-- ══════════════════════════════════════════════════════
+       HOTSPOT LAYER
+       All positions are expressed as % of the hero container.
+       Coordinates were measured against the source image
+       (951 × 1269 px).
+
+       Layout map (col × row):
+         col-L  = left panel  ~0–22 %
+         col-C  = centre      ~22–78 %
+         col-R  = right panel ~78–100 %
+         row-T  = top         ~0–10 %
+         row-1  = login/title ~10–22 %
+         row-2  = report CTA  ~22–37 %
+         row-3  = mid panels  ~37–68 %
+         row-4  = lower-mid   ~68–80 %
+         row-5  = bottom      ~80–100 %
+       ══════════════════════════════════════════════════════ -->
+  <div class="hotspot-layer" aria-label="Interactive hotspots">
+
+    <!-- ── LOGIN panel (top-left) ───────────────────────── -->
+    <a href="#login"
+       class="hotspot hotspot--green"
+       style="left:1%; top:1%; width:21%; height:20%;"
+       data-modal="login"
+       data-tip="Login to your account"
+       aria-label="Login">
+      <span class="hotspot__label">Login</span>
+    </a>
+
+    <!-- ── SETTINGS panel (top-right) ──────────────────── -->
+    <a href="#settings"
+       class="hotspot hotspot--cyan"
+       style="left:78%; top:1%; width:21%; height:20%;"
+       data-modal="settings"
+       data-tip="Settings — Preferences, Notifications, Display, Security, Account"
+       aria-label="Settings">
+      <span class="hotspot__label">Settings</span>
+    </a>
+
+    <!-- ── PROJECT THRESHOLD title / hero centre (top-centre) -->
+    <div class="hotspot hotspot--cyan"
+         style="left:22%; top:1%; width:56%; height:10%;"
+         aria-label="Project Threshold — Gathering the Evidence"
+         role="img">
+    </div>
+
+    <!-- ── REPORT AN EXPERIENCE — primary CTA (centre) ─── -->
+    <a href="#report"
+       class="hotspot hotspot--yellow hotspot--pulse"
+       style="left:22%; top:24%; width:56%; height:10%;"
+       data-modal="report-experience"
+       data-tip="Submit your encounter or experience"
+       aria-label="Report an Experience">
+      <span class="hotspot__label">Report an Experience »</span>
+    </a>
+
+    <!-- ── OVERLAPPING REPORTS (left-mid) ───────────────── -->
+    <a href="#overlapping"
+       class="hotspot hotspot--green"
+       style="left:1%; top:22%; width:21%; height:26%;"
+       data-modal="overlapping-reports"
+       data-tip="View overlapping / cross-referenced reports"
+       aria-label="Overlapping Reports — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── ENCOUNTER REPORTS (right-mid) ────────────────── -->
+    <a href="#encounters"
+       class="hotspot hotspot--magenta"
+       style="left:78%; top:22%; width:21%; height:26%;"
+       data-modal="encounter-reports"
+       data-tip="Browse first-hand encounter reports"
+       aria-label="Encounter Reports — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── FEAR & INTIMIDATION REPORTS (left-lower) ─────── -->
+    <a href="#fear"
+       class="hotspot hotspot--cyan"
+       style="left:1%; top:50%; width:21%; height:22%;"
+       data-modal="fear-intimidation"
+       data-tip="Fear and Intimidation encounter reports"
+       aria-label="Fear and Intimidation Reports — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── LESSONS / INTEGRATED REPORTS (right-lower) ───── -->
+    <a href="#lessons"
+       class="hotspot hotspot--orange"
+       style="left:78%; top:50%; width:21%; height:22%;"
+       data-modal="lessons-integrated"
+       data-tip="Lessons and integrated research reports"
+       aria-label="Lessons, Integrated Reports — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── EXPLORE THE THEORY — CTA (centre-low) ────────── -->
+    <a href="#theory"
+       class="hotspot hotspot--cyan hotspot--pulse"
+       style="left:22%; top:73%; width:56%; height:8%;"
+       data-modal="explore-theory"
+       data-tip="Discover the speculative hypothesis"
+       aria-label="Explore the Theory — Discover the Hypothesis">
+      <span class="hotspot__label">Explore the Theory »</span>
+    </a>
+
+    <!-- ── EVIDENCE & ENCOUNTERS (bottom-left) ───────────── -->
+    <a href="#evidence"
+       class="hotspot hotspot--green"
+       style="left:1%; top:74%; width:21%; height:24%;"
+       data-modal="evidence-encounters"
+       data-tip="Evidence, photos, audio, and encounter logs"
+       aria-label="Evidence and Encounters — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── MEDIA / SENSOR ICONS (bottom-left inner strip) ── -->
+    <div class="hotspot hotspot--green"
+         style="left:16%; top:77%; width:6%; height:18%;"
+         aria-hidden="true">
+    </div>
+
+    <!-- ── NEUTRALIZING FEAR TECHNIQUES (bottom-centre) ─── -->
+    <a href="#neutralizing"
+       class="hotspot hotspot--magenta hotspot--pulse"
+       style="left:22%; top:81%; width:34%; height:17%;"
+       data-modal="neutralizing-fear"
+       data-tip="Techniques for neutralising entity-induced fear"
+       aria-label="Neutralizing Fear Techniques — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+    <!-- ── COMMUNITY FORUM (bottom-right) ───────────────── -->
+    <a href="#community"
+       class="hotspot hotspot--cyan"
+       style="left:57%; top:81%; width:42%; height:17%;"
+       data-modal="community-forum"
+       data-tip="Join the research community forum"
+       aria-label="Community Forum — Open Reports">
+      <span class="hotspot__label">Open Reports »</span>
+    </a>
+
+  </div><!-- /.hotspot-layer -->
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════
+     MODAL — shared, populated by JS
+     ════════════════════════════════════════════════════════ -->
+<div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <h2 id="modal-title"></h2>
+    <p  id="modal-body"></p>
+    <button id="modal-close" class="modal__close">Close ✕</button>
+  </div>
+</div>
+
+<script src="js/homepage.js"></script>
+</body>
+</html>
