@@ -1,155 +1,105 @@
 /* ============================================================
-   Project Threshold — FX & Polish Layer
-   Layered on top of homepage.css / section.css
+   Project Threshold — FX & Polish Layer  (v2, decluttered)
    ============================================================ */
 
-/* ── Ambient canvas sits behind everything ────────────────── */
-#ambient-canvas { z-index: 0; }
+/* ── Ambient canvas ──────────────────────────────────────── */
+#ambient-canvas {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* Ensure all real content sits above the canvas */
+/* All real content above canvas */
 .hero, .page-wrap { position: relative; z-index: 1; }
 
-/* ── Hotspot: upgraded base ───────────────────────────────── */
-.hotspot {
-  /* SVG border overlay is a child; keep overflow visible */
-  overflow: visible;
-  transition: border-color .22s, box-shadow .22s, background .22s, transform .18s;
-}
-.hotspot:hover { transform: scale(1.012); }
-.hotspot:active { transform: scale(0.995); }
-
-/* Stronger glow on hover ── existing classes get a boost */
-.hotspot--cyan:hover    { box-shadow: 0 0 22px #00f0ff, 0 0 55px rgba(0,240,255,.25), inset 0 0 14px rgba(0,240,255,.1); }
-.hotspot--green:hover   { box-shadow: 0 0 22px #39ff14, 0 0 55px rgba(57,255,20,.25),  inset 0 0 14px rgba(57,255,20,.1); }
-.hotspot--yellow:hover  { box-shadow: 0 0 22px #ffe600, 0 0 55px rgba(255,230,0,.25),  inset 0 0 14px rgba(255,230,0,.1); }
-.hotspot--magenta:hover { box-shadow: 0 0 22px #ff00c8, 0 0 55px rgba(255,0,200,.25),  inset 0 0 14px rgba(255,0,200,.1); }
-.hotspot--orange:hover  { box-shadow: 0 0 22px #ff6a00, 0 0 55px rgba(255,106,0,.25),  inset 0 0 14px rgba(255,106,0,.1); }
-
-/* ── Pulse: double-ring version ───────────────────────────── */
-.hotspot--pulse::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 10px;
-  border: 1px solid currentColor;
-  opacity: 0;
-  animation: pulse-ring 2.4s ease-out infinite 1.2s;
-}
-@keyframes pulse-ring {
-  0%  { transform: scale(1);    opacity: .4; }
-  80% { transform: scale(1.09); opacity: 0; }
-  100%{ opacity: 0; }
-}
-
-/* ── Scan-line sheen on hero ──────────────────────────────── */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0px,
-    transparent 3px,
-    rgba(0,0,0,.08) 3px,
-    rgba(0,0,0,.08) 4px
-  );
-  pointer-events: none;
-  z-index: 2;
-}
-/* Hotspot layer must sit above scan lines */
+/* ── HOMEPAGE: hotspot layer above scan-line overlay ─────── */
 .hotspot-layer { z-index: 3; }
 
-/* ── Animated corner brackets on hotspot hover ────────────── */
-.hotspot::before {
-  display: none; /* reserved for pulse-ring on pulse hotspots */
-}
-.hotspot--pulse::before { display: block; }
+/* ── Hotspot: remove fx.css overrides that fought homepage.css */
+/* (homepage.css v3 already defines scale + glow — no duplication here) */
 
-/* ── Section pages: card hover lift ──────────────────────── */
+/* ── Section pages ───────────────────────────────────────── */
+
+/* Card lift */
 .card {
-  transition: border-color .2s, box-shadow .2s, transform .2s;
+  transition: border-color .22s, box-shadow .22s, transform .22s;
 }
 .card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent, #00f0ff);
-  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 20px rgba(0,240,255,.12);
+  transform: translateY(-4px);
+  border-color: var(--accent, var(--neon-cyan));
+  box-shadow: 0 10px 36px rgba(0,0,0,.45), 0 0 22px rgba(0,240,255,.13);
 }
 
-/* Report-item hover lift */
-.report-item {
-  transition: border-color .2s, box-shadow .2s, transform .18s;
+/* Report / forum item slide */
+.report-item, .forum-thread {
+  transition: border-color .2s, transform .2s;
 }
-.report-item:hover {
-  transform: translateX(4px);
-  box-shadow: 0 0 16px rgba(0,240,255,.1);
-}
+.report-item:hover { transform: translateX(5px); border-color: var(--accent, var(--neon-cyan)); }
+.forum-thread:hover { transform: translateX(5px); border-color: var(--accent, var(--neon-cyan)); }
 
-/* Forum thread hover */
-.forum-thread {
-  transition: border-color .2s, box-shadow .2s, transform .18s;
-}
-.forum-thread:hover {
-  transform: translateX(4px);
-  box-shadow: 0 0 16px rgba(0,240,255,.1);
-}
-
-/* ── Section header glow pulse ────────────────────────────── */
+/* Section header glow breathe */
 .section-header h1 {
-  animation: hdr-glow 4s ease-in-out infinite alternate;
+  animation: hdr-breathe 5s ease-in-out infinite alternate;
 }
-@keyframes hdr-glow {
+@keyframes hdr-breathe {
   from { text-shadow: none; }
-  to   { text-shadow: 0 0 18px rgba(0,240,255,.35); }
+  to   { text-shadow: 0 0 22px rgba(0,240,255,.3); }
 }
 
-/* ── Back button micro-animation ──────────────────────────── */
-.back-btn {
-  transition: background .2s, box-shadow .2s, transform .18s;
-}
-.back-btn:hover { transform: translateX(-3px); }
+/* Back button slide */
+.back-btn { transition: background .2s, box-shadow .2s, transform .18s; }
+.back-btn:hover { transform: translateX(-4px); }
 
-/* ── Stat value counter shimmer ───────────────────────────── */
+/* Stat value shimmer */
 .stat__value {
   display: inline-block;
-  animation: stat-shimmer 3s ease-in-out infinite alternate;
+  animation: stat-shimmer 3.5s ease-in-out infinite alternate;
 }
 @keyframes stat-shimmer {
   from { text-shadow: 0 0 8px currentColor; }
-  to   { text-shadow: 0 0 24px currentColor, 0 0 50px currentColor; }
+  to   { text-shadow: 0 0 28px currentColor, 0 0 56px currentColor; }
 }
 
-/* ── Eyebrow text flicker ─────────────────────────────────── */
+/* Eyebrow random flicker */
 .section-header__eyebrow {
-  animation: eyebrow-flicker 6s step-end infinite;
+  animation: eyebrow-flicker 7s step-end infinite;
 }
 @keyframes eyebrow-flicker {
-  0%, 92%, 94%, 96%, 100% { opacity: 1; }
-  93%, 95% { opacity: 0.4; }
+  0%, 91%, 93%, 95%, 100% { opacity: 1; }
+  92%, 94% { opacity: .35; }
 }
 
-/* ── Form inputs: glow on focus ───────────────────────────── */
+/* Input focus glow */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  box-shadow: 0 0 0 1px var(--accent, #00f0ff), 0 0 14px rgba(0,240,255,.25);
+  box-shadow: 0 0 0 1px var(--accent, var(--neon-cyan)),
+              0 0 14px rgba(0,240,255,.22);
 }
 
-/* ── Button press effect ──────────────────────────────────── */
-.btn-primary {
-  transition: background .2s, box-shadow .2s, transform .15s;
-}
-.btn-primary:active { transform: scale(0.97); }
+/* Button press */
+.btn-primary { transition: background .2s, box-shadow .2s, transform .15s; }
+.btn-primary:hover { box-shadow: 0 0 22px rgba(0,240,255,.4); }
+.btn-primary:active { transform: scale(.97); }
 
-/* ── Settings toggle glow ─────────────────────────────────── */
-.toggle.on {
-  box-shadow: 0 0 10px rgba(0,240,255,.5);
-}
+/* Toggle on-state glow */
+.toggle.on { box-shadow: 0 0 10px rgba(0,240,255,.45); }
 
 /* ── Scrollbar ────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #010a10; }
-::-webkit-scrollbar-thumb { background: rgba(0,240,255,.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,.55); }
+::-webkit-scrollbar-thumb { background: rgba(0,240,255,.28); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,.5); }
 
-/* ── Page transition veil ─────────────────────────────────── */
+/* ── Page-transition veil ─────────────────────────────────── */
 #pt-veil { pointer-events: none; }
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  #ambient-canvas { display: none; }
+}

@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Threshold — Gathering the Evidence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/homepage.css" />
   <link rel="stylesheet" href="css/fx.css" />
 </head>
@@ -17,110 +14,91 @@
   <img
     class="hero__bg"
     src="images/homepage-bg.jpg"
-    alt="Project Threshold — neon-lit cryptid research dashboard"
+    alt="Project Threshold — interactive neon research dashboard"
+    draggable="false"
   />
 
   <!-- ══════════════════════════════════════════════════════
-       HOTSPOT LAYER — positions calibrated to 951×1269 artwork
-       All values are % of the hero container.
+       HOTSPOT LAYER
+       Positions use semantic CSS classes defined in homepage.css.
+       Every coordinate was derived from the artwork's own neon
+       border pixels (951x1269 source; scales proportionally).
        ══════════════════════════════════════════════════════ -->
-  <div class="hotspot-layer" aria-label="Interactive navigation hotspots">
+  <div class="hotspot-layer" aria-label="Navigation hotspots">
 
-    <!-- LOGIN panel — top-left, green border -->
     <a href="pages/login.html"
-       class="hotspot hotspot--green"
-       style="left:0.5%; top:1.2%; width:20.5%; height:17.5%;"
-       data-tip="Login to your account"
+       class="hotspot hotspot--green hs-login"
+       data-tip="Login — access your research account"
        aria-label="Login">
       <span class="hotspot__label">Login »</span>
     </a>
 
-    <!-- SETTINGS panel — top-right, cyan border -->
     <a href="pages/settings.html"
-       class="hotspot hotspot--cyan"
-       style="left:79%; top:1.2%; width:20.5%; height:17.5%;"
-       data-tip="Settings — Preferences, Notifications, Display, Security"
+       class="hotspot hotspot--cyan hs-settings"
+       data-tip="Settings — preferences, notifications, security"
        aria-label="Settings">
       <span class="hotspot__label">Settings »</span>
     </a>
 
-    <!-- REPORT AN EXPERIENCE — centre CTA, yellow pulse -->
     <a href="pages/report.html"
-       class="hotspot hotspot--yellow hotspot--pulse"
-       style="left:21.6%; top:20%; width:56.8%; height:10%;"
-       data-tip="Submit your encounter or experience"
+       class="hotspot hotspot--yellow hotspot--pulse hs-report"
+       data-tip="Report an Experience — share your encounter"
        aria-label="Report an Experience">
       <span class="hotspot__label">Report an Experience »</span>
     </a>
 
-    <!-- OVERLAPPING REPORTS — left-mid, green -->
     <a href="pages/overlapping-reports.html"
-       class="hotspot hotspot--green"
-       style="left:0.5%; top:19.5%; width:20.5%; height:21.5%;"
-       data-tip="Cross-referenced encounter data"
+       class="hotspot hotspot--green hs-overlapping"
+       data-tip="Overlapping Reports — cross-referenced encounters"
        aria-label="Overlapping Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- ENCOUNTER REPORTS — right-mid, magenta -->
     <a href="pages/encounter-reports.html"
-       class="hotspot hotspot--magenta"
-       style="left:79%; top:19.5%; width:20.5%; height:21.5%;"
-       data-tip="First-hand encounter accounts"
+       class="hotspot hotspot--magenta hs-encounter"
+       data-tip="Encounter Reports — first-hand accounts"
        aria-label="Encounter Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- FEAR & INTIMIDATION REPORTS — left-lower, cyan -->
     <a href="pages/fear-intimidation.html"
-       class="hotspot hotspot--cyan"
-       style="left:0.5%; top:41.5%; width:20.5%; height:22.5%;"
-       data-tip="Fear and psychological impact reports"
+       class="hotspot hotspot--cyan hs-fear"
+       data-tip="Fear and Intimidation — psychological impact reports"
        aria-label="Fear and Intimidation Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- LESSONS / INTEGRATED REPORTS — right-lower, orange -->
     <a href="pages/lessons.html"
-       class="hotspot hotspot--orange"
-       style="left:79%; top:41.5%; width:20.5%; height:22.5%;"
-       data-tip="Integrated research and lessons learned"
+       class="hotspot hotspot--orange hs-lessons"
+       data-tip="Lessons and Integrated Reports — synthesised research"
        aria-label="Lessons — Integrated Reports">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- EXPLORE THE THEORY — centre CTA, cyan pulse -->
-    <a href="pages/explore-theory.html"
-       class="hotspot hotspot--cyan hotspot--pulse"
-       style="left:21.6%; top:69%; width:56.8%; height:7.5%;"
-       data-tip="Discover the speculative hypothesis"
-       aria-label="Explore the Theory">
-      <span class="hotspot__label">Explore the Theory »</span>
-    </a>
-
-    <!-- EVIDENCE & ENCOUNTERS — bottom-left, green -->
     <a href="pages/evidence.html"
-       class="hotspot hotspot--green"
-       style="left:0.5%; top:64.5%; width:20.5%; height:25%;"
-       data-tip="Physical and photographic evidence catalogue"
+       class="hotspot hotspot--green hs-evidence"
+       data-tip="Evidence and Encounters — physical and digital archive"
        aria-label="Evidence and Encounters">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- NEUTRALIZING FEAR TECHNIQUES — bottom-centre, magenta pulse -->
+    <a href="pages/explore-theory.html"
+       class="hotspot hotspot--cyan hotspot--pulse hs-theory"
+       data-tip="Explore the Theory — the biological derivation hypothesis"
+       aria-label="Explore the Theory">
+      <span class="hotspot__label">Explore the Theory »</span>
+    </a>
+
     <a href="pages/neutralizing-fear.html"
-       class="hotspot hotspot--magenta hotspot--pulse"
-       style="left:21.6%; top:77%; width:36%; height:17.5%;"
-       data-tip="Techniques for countering entity-induced fear"
+       class="hotspot hotspot--magenta hotspot--pulse hs-neutralizing"
+       data-tip="Neutralizing Fear Techniques — countermeasure research"
        aria-label="Neutralizing Fear Techniques">
       <span class="hotspot__label">Open Reports »</span>
     </a>
 
-    <!-- COMMUNITY FORUM — bottom-right, cyan -->
     <a href="pages/community.html"
-       class="hotspot hotspot--cyan"
-       style="left:58.5%; top:77%; width:41%; height:17.5%;"
-       data-tip="Join the research community forum"
+       class="hotspot hotspot--cyan hs-community"
+       data-tip="Community Forum — peer research and open investigations"
        aria-label="Community Forum">
       <span class="hotspot__label">Open Forum »</span>
     </a>
@@ -129,22 +107,7 @@
 
 </main>
 
-<!-- Floating tooltip -->
-<div id="tip" class="tooltip" role="tooltip" aria-hidden="true"></div>
-
-<script>
-const tip = document.getElementById('tip');
-document.querySelectorAll('.hotspot[data-tip]').forEach(h => {
-  h.addEventListener('mouseenter', e => { tip.textContent = h.dataset.tip; tip.classList.add('visible'); move(e); });
-  h.addEventListener('mousemove', move);
-  h.addEventListener('mouseleave', () => tip.classList.remove('visible'));
-});
-function move(e) {
-  const x = e.clientX + 14, y = e.clientY + 14, tw = tip.offsetWidth, vw = window.innerWidth;
-  tip.style.left = (x + tw > vw ? x - tw - 28 : x) + 'px';
-  tip.style.top = y + 'px';
-}
-</script>
-  <script src="js/fx.js"></script>
+<script src="js/hotspots.js"></script>
+<script src="js/fx.js"></script>
 </body>
 </html>
