@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Project Threshold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/section.css" />
+  <style>:root{--accent:#39ff14;}</style>
+</head>
+<body>
+<div class="page-wrap">
+  <nav class="back-nav">
+    <a href="../index.html" class="back-btn"><span class="back-btn__arrow">←</span> Home</a>
+    <span class="breadcrumb">Project Threshold / <span>Login</span></span>
+  </nav>
+  <header class="section-header">
+    <p class="section-header__eyebrow">Access Portal</p>
+    <h1>Login</h1>
+    <p class="section-header__sub">Authenticate to access the full research database</p>
+  </header>
+
+  <div class="form-panel">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" autocomplete="username" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" />
+    </div>
+    <button class="btn-primary btn-full" type="button">Login &nbsp;»</button>
+    <p style="text-align:center;margin-top:18px;font-size:.7rem;color:#456070;letter-spacing:.08em;">
+      <a href="#" style="color:#39ff14;text-decoration:none;">Forgot password?</a>
+    </p>
+  </div>
+  <div class="prose" style="max-width:480px;margin:0 auto;">
+    <h3>Access Levels</h3>
+    <p>Standard accounts may view public encounter reports and submit experiences. Verified Researcher accounts unlock cross-referenced data, heat maps, and the raw evidence archive.</p>
+    <h3>New Researcher?</h3>
+    <p>Registration is by invitation from a verified community member. Reach out via the Community Forum to request access.</p>
+  </div>
+
+</div>
+<script>
+document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',()=>t.classList.toggle('on')));
+</script>
+</body>
+</html>
