@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+/* ============================================================
+   Project Threshold — Mobile Layout  (< 768px)
+   Stacked touch cards. Desktop hero is hidden at this breakpoint.
+   ============================================================ */
+
+/* ── Hide/show by breakpoint ─────────────────────────────── */
+.mobile-nav  { display: none; }        /* hidden on desktop */
+
+@media (max-width: 767px) {
+  /* Hide the desktop hero entirely on mobile */
+  .hero { display: none !important; }
+
+  /* Show the mobile nav */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;               /* fill viewport, respect notch */
+    width: 100%;
+    background: #010a10;
+    overflow-x: hidden;
+    padding: 0 0 env(safe-area-inset-bottom, 16px);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Neon variables (mirrored from homepage.css) ─────────── */
+.mobile-nav {
+  --neon-cyan:    #00f0ff;
+  --neon-green:   #39ff14;
+  --neon-yellow:  #ffe600;
+  --neon-magenta: #ff00c8;
+  --neon-orange:  #ff6a00;
+  --dark-bg:      #010a10;
+  font-family: 'Orbitron', 'Share Tech Mono', monospace;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.mobile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px 16px;
+  border-bottom: 1px solid rgba(0, 240, 255, .18);
+  background: linear-gradient(180deg, rgba(0,240,255,.06) 0%, transparent 100%);
+  flex-shrink: 0;
+}
+
+.mobile-header__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,240,255,.3);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mobile-header__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mobile-header__title {
+  font-size: clamp(12px, 4vw, 16px);
+  font-weight: 900;
+  letter-spacing: .12em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0,240,255,.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-header__sub {
+  font-size: clamp(9px, 2.5vw, 11px);
+  letter-spacing: .1em;
+  color: rgba(0,240,255,.55);
+  text-transform: uppercase;
+}
+
+/* ── Card list ───────────────────────────────────────────── */
+.mc {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;           /* WCAG 44px minimum, comfortable 64px */
+  padding: 14px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: transparent;
+  /* GPU-composited transitions */
+  transition: background .18s ease, border-color .18s ease;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tap / active feedback */
+.mc:active {
+  background: rgba(255,255,255,.04);
+}
+
+/* Left neon accent bar */
+.mc::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.mc:active::before,
+.mc:focus-visible::before { opacity: 1; }
+
+/* Focus ring */
+.mc:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+/* ── Colour variants ─────────────────────────────────────── */
+.mc--cyan    { color: var(--neon-cyan);    }
+.mc--green   { color: var(--neon-green);   }
+.mc--yellow  { color: var(--neon-yellow);  }
+.mc--magenta { color: var(--neon-magenta); }
+.mc--orange  { color: var(--neon-orange);  }
+
+/* Pulse animation for CTA cards (subtle outer glow breathe) */
+.mc--pulse {
+  animation: mc-pulse 2.8s ease-out infinite;
+}
+@keyframes mc-pulse {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: inset 0 0 22px rgba(255,255,255,.03); }
+}
+
+/* ── Card icon ───────────────────────────────────────────── */
+.mc__icon {
+  font-size: 22px;
+  color: currentColor;
+  text-shadow: 0 0 10px currentColor;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ── Card body ───────────────────────────────────────────── */
+.mc__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mc__name {
+  font-size: clamp(11px, 3.2vw, 13px);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: currentColor;
+  text-shadow: 0 0 8px currentColor;
+  line-height: 1.2;
+}
+
+.mc__desc {
+  font-size: clamp(9px, 2.5vw, 11px);
+  letter-spacing: .05em;
+  color: rgba(255,255,255,.45);
+  line-height: 1.3;
+  white-space: normal;
+}
+
+/* ── Arrow chevron ───────────────────────────────────────── */
+.mc__arrow {
+  font-size: 22px;
+  color: currentColor;
+  opacity: .45;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.mc:active .mc__arrow,
+.mc:focus-visible .mc__arrow {
+  transform: translateX(3px);
+  opacity: .9;
+}
+
+/* ── Scrollbar (mobile, webkit) ──────────────────────────── */
+@media (max-width: 767px) {
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #010a10; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,240,255,.2); border-radius: 2px; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .mc--pulse { animation: none; }
+  .mc, .mc__arrow { transition: none; }
+}
