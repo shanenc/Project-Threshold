@@ -45,6 +45,10 @@
 
   function tick() {
     ctx.clearRect(0, 0, W, H);
+    /* Read audio level for subtle particle reaction */
+    const aB = window.ThresholdAudio ? window.ThresholdAudio.levels.bass : 0;
+    const aR = window.ThresholdAudio ? window.ThresholdAudio.levels.rms  : 0;
+
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy;
       p.alpha += p.fade;
@@ -55,12 +59,12 @@
       if (p.y > H + 4) { p.y = -4; p.x = Math.random() * W; }
 
       ctx.save();
-      ctx.globalAlpha = p.alpha;
+      ctx.globalAlpha = Math.min(0.72, p.alpha + aB * 0.14);
       ctx.shadowColor = p.col;
-      ctx.shadowBlur  = 6;
+      ctx.shadowBlur  = 6 + aB * 10;
       ctx.fillStyle   = p.col;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.r + aR * 0.7, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     });
@@ -182,8 +186,12 @@
     let running = false;
     function march() {
       if (!running) return;
-      offset = (offset + 0.4) % 22;
+      /* Audio-reactive: speed and glow scale with bass level */
+      const aB  = window.ThresholdAudio ? window.ThresholdAudio.levels.bass : 0;
+      const spd = 0.4 + aB * 1.2;
+      offset = (offset + spd) % 22;
       rect.setAttribute('stroke-dashoffset', -offset);
+      rect.style.filter = `drop-shadow(0 0 ${(4 + aB * 14).toFixed(1)}px ${col})`;
       requestAnimationFrame(march);
     }
 
@@ -231,6 +239,13 @@
       const dest = new URL(href, location.href);
       if (dest.origin !== location.origin) return;
       e.preventDefault();
+      /* Play audio before transition */
+      if (window.ThresholdAudio) {
+        const snd = a.classList.contains('back-btn')
+          ? 'back'
+          : (a.dataset.sound || 'transition');
+        window.ThresholdAudio.play(snd);
+      }
       veil.style.pointerEvents = 'all';
       veil.style.opacity = '1';
       setTimeout(() => { window.location.href = dest.href; }, 340);
