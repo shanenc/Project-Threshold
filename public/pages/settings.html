@@ -23,6 +23,9 @@
     <p class="section-header__sub">Manage your preferences, notifications, display and security</p>
   </header>
 
+  <!-- Audio settings — populated by audio.js -->
+  <div class="settings-group" id="audio-settings-panel"></div>
+
   <div class="settings-group">
     <div class="settings-group__title">Preferences</div>
     <div class="settings-row">
@@ -96,5 +99,6 @@
 document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',()=>t.classList.toggle('on')));
 </script>
   <script src="../js/fx.js"></script>
+  <script src="../js/audio.js"></script>
 </body>
 </html>
